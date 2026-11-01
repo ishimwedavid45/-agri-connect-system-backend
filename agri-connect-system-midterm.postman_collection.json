@@ -1,0 +1,259 @@
+{
+  "info": {
+    "name": "agri-connect-system-midterm",
+    "_postman_id": "b1a2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "description": "AgriConnect System Mid-Term Exam Collection for ISHIMWE David (26426)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "A2 - Save Crop",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {"mode": "raw", "raw": "{\n  \"name\": \"Maize\"\n}"},
+        "url": {"raw": "http://localhost:8080/api/crops/save", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "crops", "save"]}
+      }
+    },
+    {
+      "name": "A2 - Get All Crops",
+      "request": {
+        "method": "GET",
+        "url": {"raw": "http://localhost:8080/api/crops/all", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "crops", "all"]}
+      }
+    },
+    {
+      "name": "B1 - Find Farmers by District",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/farmers/by-district?district=musanze",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "farmers", "by-district"],
+          "query": [{"key": "district", "value": "musanze"}]
+        }
+      }
+    },
+    {
+      "name": "B2 - Farm Visits by Status",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/farm-visits/by-status?status=REQUESTED",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "farm-visits", "by-status"],
+          "query": [{"key": "status", "value": "REQUESTED"}]
+        }
+      }
+    },
+    {
+      "name": "B3 - Farm Visits in Date Range",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/farm-visits/between?start=2026-10-01&end=2026-10-31",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "farm-visits", "between"],
+          "query": [
+            {"key": "start", "value": "2026-10-01"},
+            {"key": "end", "value": "2026-10-31"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "C1 - Agronomists by Crop",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/agronomists/by-crop?name=coff",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "agronomists", "by-crop"],
+          "query": [{"key": "name", "value": "coff"}]
+        }
+      }
+    },
+    {
+      "name": "C2 - Free Cooperatives",
+      "request": {
+        "method": "GET",
+        "url": {"raw": "http://localhost:8080/api/cooperatives/free", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "cooperatives", "free"]}
+      }
+    },
+    {
+      "name": "C3 - Crops Nobody Holds",
+      "request": {
+        "method": "GET",
+        "url": {"raw": "http://localhost:8080/api/crops/unused", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "crops", "unused"]}
+      }
+    },
+    {
+      "name": "C4 - Farmers of an Agronomist",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/farmers/of-agronomist/00000000-0000-0000-0000-000000000000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "farmers", "of-agronomist", "00000000-0000-0000-0000-000000000000"]
+        }
+      }
+    },
+    {
+      "name": "D1 - Safe Saving Farm Visit",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"visitDate\": \"2026-11-20\",\n  \"purpose\": \"Routine check\",\n  \"farmer\": {\"id\": \"00000000-0000-0000-0000-000000000000\"},\n  \"agronomist\": {\"id\": \"00000000-0000-0000-0000-000000000000\"}\n}"
+        },
+        "url": {"raw": "http://localhost:8080/api/farm-visits/save", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "farm-visits", "save"]}
+      }
+    },
+    {
+      "name": "D2 - Status Flow Update",
+      "request": {
+        "method": "PATCH",
+        "url": {
+          "raw": "http://localhost:8080/api/farm-visits/00000000-0000-0000-0000-000000000000/status?status=PLANNED",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "farm-visits", "00000000-0000-0000-0000-000000000000", "status"],
+          "query": [{"key": "status", "value": "PLANNED"}]
+        }
+      }
+    },
+    {
+      "name": "D3 - Add One Crop to Agronomist",
+      "request": {
+        "method": "PUT",
+        "url": {
+          "raw": "http://localhost:8080/api/agronomists/00000000-0000-0000-0000-000000000000/crops/00000000-0000-0000-0000-000000000000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "agronomists", "00000000-0000-0000-0000-000000000000", "crops", "00000000-0000-0000-0000-000000000000"]
+        }
+      }
+    },
+    {
+      "name": "D4 - Move Agronomist to Cooperative",
+      "request": {
+        "method": "PATCH",
+        "url": {
+          "raw": "http://localhost:8080/api/agronomists/00000000-0000-0000-0000-000000000000/cooperative?coopNumber=4",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "agronomists", "00000000-0000-0000-0000-000000000000", "cooperative"],
+          "query": [{"key": "coopNumber", "value": "4"}]
+        }
+      }
+    },
+    {
+      "name": "E1 - Write a Recommendation",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"practice\": \"Fertilizer application\",\n  \"advice\": \"Apply NPK 17-17-17 at planting\",\n  \"followUpDays\": 14\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/recommendations/save?farmVisitId=00000000-0000-0000-0000-000000000000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "recommendations", "save"],
+          "query": [{"key": "farmVisitId", "value": "00000000-0000-0000-0000-000000000000"}]
+        }
+      }
+    },
+    {
+      "name": "E2 - Recommendation History of Farmer",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/recommendations/farmer/FRM-2041",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "recommendations", "farmer", "FRM-2041"]
+        }
+      }
+    },
+    {
+      "name": "E3 - Delete Recommendation",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8080/api/recommendations/delete/00000000-0000-0000-0000-000000000000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "recommendations", "delete", "00000000-0000-0000-0000-000000000000"]
+        }
+      }
+    },
+    {
+      "name": "F1 - Farm Visits Per Status",
+      "request": {
+        "method": "GET",
+        "url": {"raw": "http://localhost:8080/api/farm-visits/stats/by-status", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "farm-visits", "stats", "by-status"]}
+      }
+    },
+    {
+      "name": "F2 - Agronomist is Absent",
+      "request": {
+        "method": "PATCH",
+        "url": {
+          "raw": "http://localhost:8080/api/farm-visits/cancel-day?agronomistId=00000000-0000-0000-0000-000000000000&date=2026-10-20",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "farm-visits", "cancel-day"],
+          "query": [
+            {"key": "agronomistId", "value": "00000000-0000-0000-0000-000000000000"},
+            {"key": "date", "value": "2026-10-20"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Bonus - Dashboard Summary",
+      "request": {
+        "method": "GET",
+        "url": {"raw": "http://localhost:8080/api/dashboard/summary", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "dashboard", "summary"]}
+      }
+    },
+    {
+      "name": "Bonus - Farm Visits Page by Page",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/farm-visits/page?page=0&size=5&sort=visitDate,desc",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "farm-visits", "page"],
+          "query": [
+            {"key": "page", "value": "0"},
+            {"key": "size", "value": "5"},
+            {"key": "sort", "value": "visitDate,desc"}
+          ]
+        }
+      }
+    }
+  ]
+}
